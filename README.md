@@ -1,4 +1,4 @@
-#Python – Conexão com o Banco de Dados MySQL
+# Python – Conexão com o Banco de Dados MySQL
 
 Primeiro: Para acessar o banco de dados que você deseja conectar, é necessário importar o drive do banco de dados MySQL mysql.connector. Esse drive Python é independente para comunicação com servidores MySQL. 
 
