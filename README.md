@@ -6,9 +6,8 @@ Partindo do pressuposto que você já tem o MySQL instalado na sua máquina, ent
  
 Agora que você já instalou o módulo mysql.connector, então crie um banco de dados de teste, crie também uma tabela e insira nela alguns valores. Eu usei o MySQL Workbench para criar o meu banco de teste. 
 
-
-# create database meubanco;
-# use meubanco;
+create database meubanco;
+use meubanco;
 CREATE TABLE `user` (
   `id` SERIAL PRIMARY KEY,
   `name` VARCHAR(30) NOT NULL,
@@ -21,5 +20,21 @@ INSERT INTO `user` (`name`, `cpf`) VALUES ('Maria', '012.236.987-44'),
  
 
 Depois de criado o banco e a tabela, você já pode criar um script de conexão. Utilize a sua IDE de preferência (eu utilizo o Visual Code), dê um nome ao arquivo e o salve com a extensão .py. Escreva nele o código que irá se conectar o banco de dados criado (no meu caso o meubanco). Primeiramente, importamos o driver mysql.connector, em seguida estabelecemos uma conexão ao informar o servidor, o usuário, a senha (no caso da senha, deixamos em branco) e o nome do banco de dados criado. 
+
+import mysql.connector
+from mysql.connector import errorcode
+
+try:
+	db_connection = mysql.connector.connect(host='localhost', user='root', password='', database='bd')
+	print("Database connection made!")
+except mysql.connector.Error as error:
+	if error.errno == errorcode.ER_BAD_DB_ERROR:
+		print("Database doesn't exist")
+	elif error.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+		print("User name or password is wrong")
+	else:
+		print(error)
+else:
+	db_connection.close()
 
 Pronto, o script de conexão com o banco de dados foi criado, então, execute o código e verifique se na saída irá aparecer Database connection made!, se sim, então deu tudo certo. 
