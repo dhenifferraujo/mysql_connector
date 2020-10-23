@@ -9,8 +9,11 @@ Partindo do pressuposto que você já tem o MySQL instalado na sua máquina, ent
 Agora que você já instalou o módulo mysql.connector, então crie um banco de dados de teste, crie também uma tabela e insira nela alguns valores. Eu usei o MySQL Workbench para criar o meu banco de teste. 
 
 create database meubanco;
+
 use meubanco;
+
 CREATE TABLE `user` (
+
   `id` SERIAL PRIMARY KEY,
   `name` VARCHAR(30) NOT NULL,
   `cpf` VARCHAR(20) NOT NULL 
