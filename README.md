@@ -13,11 +13,15 @@ use meubanco;
 CREATE TABLE `user` (
 
   `id` SERIAL PRIMARY KEY,
+  
   `name` VARCHAR(30) NOT NULL,
-  `cpf` VARCHAR(20) NOT NULL 
-);
+  
+  `cpf` VARCHAR(20) NOT NULL );
+  
 INSERT INTO `user` (`name`, `cpf`) VALUES ('Maria', '012.236.987-44'), 
+
 ('João', '021.545.258-55'),
+
 ('José', '024.547.658-77'), ('Pedro', '090.654.865.89');
 
  # Criar script de conexão
@@ -27,18 +31,28 @@ Depois de criado o banco e a tabela, você já pode criar um script de conexão.
 # Script de conexão
 
 import mysql.connector
+
 from mysql.connector import errorcode
 
 try:
 	db_connection = mysql.connector.connect(host='localhost', user='root', password='', database='bd')
+	
 	print("Database connection made!")
+
 except mysql.connector.Error as error:
+	
 	if error.errno == errorcode.ER_BAD_DB_ERROR:
+	
 		print("Database doesn't exist")
+		
 	elif error.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+	
 		print("User name or password is wrong")
+		
 	else:
+	
 		print(error)
+		
 else:
 	db_connection.close()
 
