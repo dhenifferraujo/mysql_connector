@@ -8,6 +8,7 @@ Partindo do pressuposto que você já tem o MySQL instalado na sua máquina, ent
  
 Agora que você já instalou o módulo mysql.connector, então crie um banco de dados de teste, crie também uma tabela e insira nela alguns valores. Eu usei o MySQL Workbench para criar o meu banco de teste. 
 
+
 create database meubanco;
 use meubanco;
 
@@ -25,11 +26,13 @@ INSERT INTO `user` (`name`, `cpf`) VALUES ('Maria', '012.236.987-44'),
 
 ('José', '024.547.658-77'), ('Pedro', '090.654.865.89');
 
+
  # Criar script de conexão
 
 Depois de criado o banco e a tabela, você já pode criar um script de conexão. Utilize a sua IDE de preferência (eu utilizo o Visual Code), dê um nome ao arquivo e o salve com a extensão .py. Escreva nele o código que irá se conectar o banco de dados criado (no meu caso o meubanco). Primeiramente, importamos o driver mysql.connector, em seguida estabelecemos uma conexão ao informar o servidor, o usuário, a senha (no caso da senha, deixamos em branco) e o nome do banco de dados criado. 
 
 # Script de conexão
+
 
 import mysql.connector
 
